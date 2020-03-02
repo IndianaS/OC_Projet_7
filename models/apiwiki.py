@@ -12,6 +12,7 @@ class ApiWikipedia:
         self.url = url_api_wikipedia
     
     def api_get_page_id(self, lat, lng):
+        """"""
         params = {
             "format": "json", # format de la réponse
             "action": "query", # action à réaliser
@@ -37,7 +38,7 @@ class ApiWikipedia:
         return page_id
 
     def api_get_extract(self, page_id):
-        # autre méthode
+        """"""
         params = {
                 "format": "json", # format de la réponse
                 "action": "query", # action à effectuer

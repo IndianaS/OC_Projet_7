@@ -7,6 +7,7 @@ from logzero import logger
 class Parser:
 
     def clean(self, question):
+        """"""
         # 1. enlève les maj.
         question_lower = question.lower()
         # 2. enlève les accents.
@@ -20,11 +21,13 @@ class Parser:
         
     
     def _extract_place(self, question):
+        """"""
         regex = r"(ou se trouve|ou se situe|quelle est l'adresse de)([^,.:;!?]*)"
         match = re.search(regex, question)
         return match.group(2)
 
     def _effacer_article(self, question):
+        """"""
         regex = r"(le|la|les|l'|des|un|une)(.*)"
         match = re.search(regex, question)
         return match.group(2)
