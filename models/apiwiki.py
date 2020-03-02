@@ -52,8 +52,9 @@ class ApiWikipedia:
         if response.status_code == 200:
             extracts_data = response.json()
             logger.debug("Voici la réponse obtenue: ")
-            pprint(extracts_data)
+            #pprint(extracts_data)
             extract = extracts_data['query']['pages'][str(page_id)]['extract']
+            pprint(extract)
             return extract
         else:
             logger.debug("La requête a donné un status d'erreur")
