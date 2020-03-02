@@ -1,3 +1,9 @@
 {
-    "python.pythonPath": "C:\\Users\\Indiana\\.virtualenvs\\OC_Projet7-fNqsIKH_\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\Indiana\\.virtualenvs\\OC_Projet7-fNqsIKH_\\Scripts\\python.exe",
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
 }

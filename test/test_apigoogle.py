@@ -1,22 +1,36 @@
 from models.apigoogle import ApiGoogle
 
-import urllib.request
-from io import BytesIO
-import json
+def test_apigoogle_api_reading_online():
 
-def test_apigoogle_api_reading(monkeypatch):
-    params = {
-            "address": "Rue de Rivoli, 75001 Paris, France"
-        }
+    apigoogle = ApiGoogle()
+    response1, response2 = apigoogle.api_reading("Paris")
+
+    assert response1 == 'Paris, France'
+    assert response2 == {'lat': 48.856614, 'lng': 2.3522219}
+
+def test_apigoogle_api_reading_offline(monkeypatch):
+    result = {
+        "results":
+        [
+            {
+                "formatted_address" : "new york",
+                "geometry" : {'location': {'lat': 48.85837009999999, 'lng': 2.2944813}}
+                }
+        ]
+      }
+
+    class MockRequests:
+        def get(self, url, params):
+            return MockResponse()
 
     class MockResponse:
+        def json(self):
+            return result
 
-        def read(self):
-            results_string = json.dumps(params)
-            results_bytes = results_string.encode()
-            return results_bytes
+    monkeypatch.setattr('models.apigoogle.requests', MockRequests())
 
-    def mock_urlopen(url):
-        return MockResponse()
+    apigoogle = ApiGoogle()
+    result_adress, result_coordinate = apigoogle.api_reading('new york')
 
-    monkeypatch.setattr('models.apigoogle', mock_urlopen)
+    assert result_adress == 'new york'
+    assert result_coordinate == {'lat': 48.85837009999999, 'lng': 2.2944813}

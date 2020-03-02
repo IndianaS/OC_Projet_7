@@ -15,7 +15,10 @@ class ApiGoogle:
             "key": key_api_google
         }
 
-        response = requests.get(url_api_google, params=params)
+        response = requests.get(url=url_api_google, params=params)
         data = response.json()
-        logger.debug(data["results"][0]["formatted_address"])
-        return data["results"][0]["formatted_address"]
+        result_adress = data["results"][0]["formatted_address"]
+        result_coordinate = data["results"][0]["geometry"]["location"]
+        logger.debug(result_adress)
+        logger.debug(result_coordinate)
+        return result_adress, result_coordinate
