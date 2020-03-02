@@ -12,8 +12,8 @@ def test_Parser_extract_place():
     result = parser._extract_place(question)
     assert result == " le musee du louvre"
 
-def test_Parser_effacer_article():
+def test_Parser_delete_article():
     question = 'ou se trouve le musee du louvre?'
     parser = Parser()
-    result = parser._effacer_article(question)
+    result = parser._delete_article(question)
     assert result == " musee du louvre?"
