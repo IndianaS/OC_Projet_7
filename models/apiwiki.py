@@ -9,6 +9,7 @@ from settings.settings import url_api_wikipedia
 class ApiWikipedia:
 
     def __init__(self):
+        """"""
         self.url = url_api_wikipedia
     
     def api_get_page_id(self, lat, lng):
