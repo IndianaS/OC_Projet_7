@@ -44,9 +44,10 @@ def test_apiwiki_get_page_id_offline(monkeypatch):
 def test_apiwiki_get_extract_online():
     """"""
     apiwiki = ApiWikipedia()
-    response = apiwiki.api_get_extract(1359783)
+    response1, response2 = apiwiki.api_get_extract(1359783)
 
-    assert response[:14] == 'La tour Eiffel'
+    assert response1[:14] == 'La tour Eiffel'
+    assert response2 == 'https://fr.wikipedia.org/wiki/Tour_Eiffel'
 
 
 def test_apiwiki_get_extract_offline(monkeypatch):
@@ -55,6 +56,7 @@ def test_apiwiki_get_extract_offline(monkeypatch):
         'query': {
             'pages': {
                 '5': {
+                    'canonicalurl': 'https://fr.wikipedia.org/wiki/Tour_Eiffel',
                     'extract': 'La tour Mockel'
                 }
             }
@@ -74,12 +76,13 @@ def test_apiwiki_get_extract_offline(monkeypatch):
             self.status_code = code
 
         def json(self):
-            """"""
+            
             return result
 
     monkeypatch.setattr('models.apiwiki.requests', MockRequests())
 
     apiwiki = ApiWikipedia()
-    extract = apiwiki.api_get_extract(5)
+    extract_text, extract_url = apiwiki.api_get_extract(5)
 
-    assert extract == 'La tour Mockel'
+    assert extract_text == 'La tour Mockel'
+    assert extract_url == 'https://fr.wikipedia.org/wiki/Tour_Eiffel'

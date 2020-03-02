@@ -53,8 +53,10 @@ class ApiWikipedia:
             extracts_data = response.json()
             logger.debug("Voici la réponse obtenue: ")
             #pprint(extracts_data)
-            extract = extracts_data['query']['pages'][str(page_id)]['extract']
-            pprint(extract)
-            return extract
+            result_extract = extracts_data['query']['pages'][str(page_id)]['extract']
+            result_url = extracts_data['query']['pages'][str(page_id)]['canonicalurl']
+            logger.debug(result_url)
+            pprint(result_extract)
+            return result_extract, result_url
         else:
             logger.debug("La requête a donné un status d'erreur")
