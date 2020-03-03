@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- En-tête de la page -->
+        <meta charset="utf-8" />
+        <title>GrandPy Bot</title>
+        <style>
+            .input--usertext {
+                width: 200px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Bienvenue sur ma page</h1>
+
+        <form id="user-text-form">
+           <p>
+             <label from="userText"></label>
+             <input type="text" id="userText" class="input==usertext" name="userText" placeholder="Ajouter votre text ici">
+             <input type="submit" value="Envoyé">
+           </p> 
+        </form>
+
+        <script>
+            let form = document.querySelector("#user-text-form")
+
+           form.addEventListener("submit", function (event){
+               event.preventDefault();
+               // Envoyer le contenu du formulaire au serveur
+               fetch("/ajax", {
+                   method: "Post",
+                   body: new FormData(form)
+               });
+           }) 
+        </script>
+    </body>
+</html>
