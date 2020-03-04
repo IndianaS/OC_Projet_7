@@ -53,7 +53,6 @@ class ApiWikipedia:
         if response.status_code == 200:
             extracts_data = response.json()
             logger.debug("Voici la réponse obtenue: ")
-            #pprint(extracts_data)
             result_extract = extracts_data['query']['pages'][str(page_id)]['extract']
             result_url = extracts_data['query']['pages'][str(page_id)]['canonicalurl']
             logger.debug(result_url)

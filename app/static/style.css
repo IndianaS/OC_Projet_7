@@ -1,0 +1,28 @@
+
+h1 {
+    text-decoration: underline;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    font-size: 54px;
+}
+
+.input-usertext {
+    width: 680px;
+    height: 20px;
+}
+
+p
+{
+    text-align: center;
+}
+
+body {
+    background-color: rgb(43, 42, 42);
+    margin: 0px;
+}
+
+.div
+{
+    background-color: gray;
+    height:120px;
+}
