@@ -4,7 +4,7 @@ from models.parser import Parser
 from logzero import logger
 
 
-question_utilisateur = "Salut Grandpy, comment vas-tu? avez-vous passé une bonne soirée avec mémé hier soir? au fait, pourrais-tu m'indiquer ou se trouve la Tour Eiffel?"
+question_utilisateur = "oû se trouve la ville de Grenoble ?"
 
 parser = Parser()
 result = parser.clean(question_utilisateur)

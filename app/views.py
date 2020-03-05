@@ -29,8 +29,6 @@ def ajax():
     page_id = api_wiki.api_get_page_id(**coo)
     extract, url = api_wiki.api_get_extract(page_id)
 
-    logger.debug("Réponse :" + extract)
-
     data = { 
         "question" : user_text,
         "article" : extract,

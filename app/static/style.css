@@ -28,8 +28,8 @@ body {
 }
 
 .chatbox {
-    height: 200px;
-    background-color: #eee;
+    height: 800px;
+    background-color: rgb(231, 231, 231);
     width: 600px;
     margin: auto;
     display: flex;
@@ -40,7 +40,7 @@ body {
    
    .question {
     width: 60%;
-    background-color: red;
+    background-color:rgb(143, 143, 143);
     align-self: flex-start;
     margin: 10px;
     border-radius: 5px;
@@ -48,11 +48,11 @@ body {
    
    .answer {
     width: 60%;
-    background-color: blue;
+    background-color:rgb(72, 197, 72);
     align-self: flex-end;
     margin: 10px;
     border-radius: 5px;
-    color: white;
+    color:white;
    }
    
    .map {
