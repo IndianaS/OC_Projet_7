@@ -31,4 +31,12 @@ def ajax():
 
     logger.debug("Réponse :" + extract)
 
-    return jsonify(extract)
+    data = { 
+        "question" : user_text,
+        "article" : extract,
+        "coords" : coo,
+        "url" : url,
+        "adress" : adress
+    }
+
+    return jsonify(data)
