@@ -6,12 +6,14 @@ from logzero import logger
 class ApiGoogle:
 
     def __init__(self):
-        """"""
+        """Initialization url API key api"""
+
         self.url = url_api_google
         self.key = key_api_google
     
     def api_reading(self, place):
-        """"""
+        """Search parameter in the API"""
+
         params = {
             "address": place,
             "key": key_api_google

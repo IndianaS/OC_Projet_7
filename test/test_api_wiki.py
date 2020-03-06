@@ -2,7 +2,8 @@ from models.apiwiki import ApiWikipedia
 
 
 def test_apiwiki_get_page_id_online():
-    """"""
+    """WikiPedia API test online id page"""
+
     apiwiki = ApiWikipedia()
     response = apiwiki.api_get_page_id(48.85837009999999, 2.2944813)
 
@@ -10,7 +11,8 @@ def test_apiwiki_get_page_id_online():
 
 
 def test_apiwiki_get_page_id_offline(monkeypatch):
-    """"""
+    """WikiPedia API test offline id page"""
+
     result = {
         'query': {
             'geosearch':
@@ -23,14 +25,24 @@ def test_apiwiki_get_page_id_offline(monkeypatch):
     }
 
     class MockRequests:
+        """Mock class Requests"""
+
         def get(self, url, params):
+            """Mock method get function"""
+
             return MockResponse(200)
 
     class MockResponse:
+        """Mock class Response"""
+
         def __init__(self, code):
+            """Wiki API code initialization"""
+
             self.status_code = code
 
         def json(self):
+            """Mock method json function"""
+
             return result
 
     monkeypatch.setattr('models.apiwiki.requests', MockRequests())
@@ -42,7 +54,8 @@ def test_apiwiki_get_page_id_offline(monkeypatch):
 
 
 def test_apiwiki_get_extract_online():
-    """"""
+    """WikiPedia API test online extract"""
+
     apiwiki = ApiWikipedia()
     response1, response2 = apiwiki.api_get_extract(1359783)
 
@@ -51,7 +64,8 @@ def test_apiwiki_get_extract_online():
 
 
 def test_apiwiki_get_extract_offline(monkeypatch):
-    """"""
+    """WikiPedia API test offline extract"""
+
     result = {
         'query': {
             'pages': {
@@ -64,19 +78,24 @@ def test_apiwiki_get_extract_offline(monkeypatch):
     }
 
     class MockRequests:
-        """"""
+        """Mock class Requests"""
+
         def get(self, url, params):
-            """"""
+            """Mock method get function"""
+
             return MockResponse(200)
 
     class MockResponse:
-        """"""
+        """Mock class Response"""
+
         def __init__(self, code):
-            """"""
+            """Wiki API code initialization"""
+
             self.status_code = code
 
         def json(self):
-            
+            """Mock method json function"""
+
             return result
 
     monkeypatch.setattr('models.apiwiki.requests', MockRequests())

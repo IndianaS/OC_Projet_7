@@ -9,11 +9,13 @@ from settings.settings import url_api_wikipedia
 class ApiWikipedia:
 
     def __init__(self):
-        """"""
+        """Initialization url API"""
+
         self.url = url_api_wikipedia
     
     def api_get_page_id(self, lat, lng):
-        """"""
+        """Search parameter in the API"""
+
         params = {
             "format": "json",
             "action": "query",
@@ -39,7 +41,8 @@ class ApiWikipedia:
         return page_id
 
     def api_get_extract(self, page_id):
-        """"""
+        """Data extraction from the Wikipedia API"""
+
         params = {
                 "format": "json",
                 "action": "query",
