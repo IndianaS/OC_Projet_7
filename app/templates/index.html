@@ -34,6 +34,15 @@
                 divElt.scrollIntoView();
                 }
 
+            function createDivLink(url, klass, parent) {
+                let divElt = document.createElement("div");
+                divElt.classList.add(klass);
+                divElt.innerHTML = "Lien vers page Wikipedia".link(url);
+                parent.appendChild(divElt);
+                divElt.scrollIntoView();
+                }
+
+
             function createMap(position, klass, parent) {
                 let mapElt = document.createElement("div");
                 mapElt.classList.add(klass);
@@ -63,8 +72,7 @@
                         let chatbox = document.querySelector("#chatbox")
                         createDiv(data.question, "question", chatbox);
                         createDiv(data.adress, "answer", chatbox);
-                        createDiv(data.url, "answer", chatbox);
-                        createDiv('Test lien'.link(data.url), "answer", chatbox)
+                        createDivLink(data.url, "answer", chatbox);
                         createMap(data.coords, "map", chatbox);
                         createDiv(data.article, "answer", chatbox);
                         });
@@ -77,3 +85,5 @@
         </script>
     </body>
 </html>
+
+
