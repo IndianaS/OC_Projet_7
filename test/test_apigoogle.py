@@ -1,5 +1,6 @@
 from models.apigoogle import ApiGoogle
 
+
 def test_apigoogle_api_reading_online():
     """Google API test online"""
 
@@ -9,6 +10,7 @@ def test_apigoogle_api_reading_online():
     assert response1 == 'Paris, France'
     assert response2 == {'lat': 48.856614, 'lng': 2.3522219}
 
+
 def test_apigoogle_api_reading_offline(monkeypatch):
     """Google API test offline"""
 
@@ -16,8 +18,8 @@ def test_apigoogle_api_reading_offline(monkeypatch):
         "results":
         [
             {
-                "formatted_address" : "new york",
-                "geometry" : {'location': {'lat': 48.85837009999999, 'lng': 2.2944813}}
+                "formatted_address": "new york",
+                "geometry": {'location': {'lat': 48.85837009999999, 'lng': 2.2944813}}
                 }
         ]
       }

@@ -1,7 +1,8 @@
 import requests
-from settings.settings import url_api_google, key_api_google
-import logzero
 from logzero import logger
+
+from settings.settings import key_api_google, url_api_google
+
 
 class ApiGoogle:
 
@@ -10,7 +11,7 @@ class ApiGoogle:
 
         self.url = url_api_google
         self.key = key_api_google
-    
+
     def api_reading(self, place):
         """Search parameter in the API"""
 

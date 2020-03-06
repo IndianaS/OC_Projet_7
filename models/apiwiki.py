@@ -1,5 +1,5 @@
 from pprint import pprint
-import logzero
+
 import requests
 from logzero import logger
 
@@ -12,7 +12,7 @@ class ApiWikipedia:
         """Initialization url API"""
 
         self.url = url_api_wikipedia
-    
+
     def api_get_page_id(self, lat, lng):
         """Search parameter in the API"""
 
@@ -28,7 +28,7 @@ class ApiWikipedia:
 
         if response.status_code == 200:
             geosearch_data = response.json()
-            
+
         else:
             geosearch_data = {
                 'query': {

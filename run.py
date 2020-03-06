@@ -1,8 +1,6 @@
 from models.apigoogle import ApiGoogle
 from models.apiwiki import ApiWikipedia
 from models.parser import Parser
-from logzero import logger
-
 
 question_utilisateur = "oû se trouve la ville de Grenoble ?"
 
