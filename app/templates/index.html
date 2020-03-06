@@ -23,6 +23,8 @@
            </p> 
         </form>
         <div id="chatbox" class="chatbox"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLa9kNqrKKKE8jMU1xpXYzPOHpxvpHuQ">
+        </script>
         <script>
             let form = document.querySelector("#user-text-form")
 
@@ -71,16 +73,13 @@
                         let chatbox = document.querySelector("#chatbox")
                         createDiv(data.question, "question", chatbox);
                         createDiv(data.adress, "answer", chatbox);
-                        createDivLink(data.url, "answer", chatbox);
                         createMap(data.coords, "map", chatbox);
                         createDiv(data.article, "answer", chatbox);
+                        createDivLink(data.url, "answer", chatbox);
                         });
            })
 
 
-        </script>
-        <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLa9kNqrKKKE8jMU1xpXYzPOHpxvpHuQ">
         </script>
     </body>
 </html>

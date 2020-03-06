@@ -2,6 +2,8 @@ from models.parser import Parser
 
 
 def test_Parser_clean():
+    """"""
+
     question = 'Ou se trouve le musée du Louvre?'
     parser = Parser()
     result = parser.clean(question)
@@ -9,6 +11,8 @@ def test_Parser_clean():
 
 
 def test_Parser_extract_place():
+    """"""
+
     question = 'ou se trouve le musee du louvre?'
     parser = Parser()
     result = parser._extract_place(question)
@@ -16,6 +20,8 @@ def test_Parser_extract_place():
 
 
 def test_Parser_delete_article():
+    """"""
+
     question = 'ou se trouve le musee du louvre?'
     parser = Parser()
     result = parser._delete_article(question)

@@ -35,7 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    overflow: scroll;
+    overflow: auto;
    }
    
    .question {
@@ -57,4 +57,7 @@ body {
    
    .map {
     height: 200px;
+    width: 60%;
+    flex-shrink: 0;
+    align-self: flex-end;
    }
