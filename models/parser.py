@@ -17,8 +17,15 @@ class Parser:
 
     def _extract_place(self, question):
         """"""
-        regex = r"(ou se trouve|ou se situe|quelle est l'adresse de)([^,.:;!?]*)"
+        regex = r"(ou se trouve|ou se situe|quelle est l'adresse de|ou est)([^,.:;!?]*)"
         match = re.search(regex, question)
+        # Bug ici
+
+        #if match :
+            #logger.debug('truc')
+        #else:
+            #logger.debug('autre truc')
+
         return match.group(2)
 
     def _delete_article(self, question):

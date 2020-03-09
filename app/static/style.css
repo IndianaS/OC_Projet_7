@@ -21,14 +21,41 @@ body {
     margin: 0px;
 }
 
+footer 
+{
+    background-color:gray; 
+}
+
 .div
 {
     background-color: gray;
     height:120px;
 }
 
+.div-footer
+{
+    height:60px;
+    margin-bottom: 60px;
+}
+
+
+.picture-left
+{
+    width: 300px;
+    height: 200px;
+    position: absolute; left: 0%;
+}
+
+.picture-right
+{
+    width: 300px;
+    height: 200px;
+    position: absolute; right: 0%;
+    transform: scaleX(-1)
+}
+
 .chatbox {
-    height: 800px;
+    height: 700px;
     background-color: rgb(231, 231, 231);
     width: 600px;
     margin: auto;

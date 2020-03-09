@@ -13,6 +13,14 @@
                 <h1>GrandPy vous souhaite la bienvenue</h1>
             </div>
         <br>
+            <div class="picture-left">
+                <img src={{url_for('static', filename='picture/robot.png')}}/>
+            </div>
+
+            <div class="picture-right">
+                <img src={{url_for('static', filename='picture/robot.png')}}/>
+            </div>
+
         <form id="user-text-form">
            <p>
              <label from="userText"></label>
@@ -23,63 +31,14 @@
            </p> 
         </form>
         <div id="chatbox" class="chatbox"></div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLa9kNqrKKKE8jMU1xpXYzPOHpxvpHuQ">
-        </script>
-        <script>
-            let form = document.querySelector("#user-text-form")
-
-            function createDiv(text, klass, parent) {
-                let divElt = document.createElement("div");
-                divElt.classList.add(klass);
-                divElt.textContent = text;
-                parent.appendChild(divElt);
-                divElt.scrollIntoView();
-                }
-
-            function createDivLink(url, klass, parent) {
-                let divElt = document.createElement("div");
-                divElt.classList.add(klass);
-                divElt.innerHTML = "Lien vers page Wikipedia".link(url);
-                parent.appendChild(divElt);
-                divElt.scrollIntoView();
-                }
-
-            function createMap(position, klass, parent) {
-                let mapElt = document.createElement("div");
-                mapElt.classList.add(klass);
-                console.log(position);
-                let map = new google.maps.Map(mapElt, {
-                zoom: 6,
-                center: position
-                });
-
-            var marker = new google.maps.Marker({
-                position: position,
-                map: map,
-                title: "Voilà l'endroit demandé"
-                });
-                parent.appendChild(mapElt);
-                }
-
-           form.addEventListener("submit", function (event) {
-               event.preventDefault();
-               fetch("/ajax", {
-                   method: "Post",
-                   body: new FormData(form)
-               }).then(function(response) {
-                   return response.json()
-                    }).then(function(data) {
-                        console.log(data)
-                        let chatbox = document.querySelector("#chatbox")
-                        createDiv(data.question, "question", chatbox);
-                        createDiv(data.adress, "answer", chatbox);
-                        createMap(data.coords, "map", chatbox);
-                        createDiv(data.article, "answer", chatbox);
-                        createDivLink(data.url, "answer", chatbox);
-                        });
-           })
-
-
-        </script>
-    </body>
+        <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLa9kNqrKKKE8jMU1xpXYzPOHpxvpHuQ">
+    </script>
+    <script type="text/javascript" src={{ url_for('static', filename='script.js') }}></script>
+  </body>
+  <footer>
+    <div class="div-footer">
+        <p>du blabla comme la</p>
+    </div>
+  </footer>
 </html>
