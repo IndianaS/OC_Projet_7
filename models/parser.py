@@ -12,7 +12,6 @@ class Parser:
         question_without_accent = ''.join((c for c in unicodedata.normalize('NFD', question_lower) if unicodedata.category(c) != 'Mn'))
         question_place = self._extract_place(question_without_accent)
         question_without_article = self._delete_article(question_place)
-        logger.debug(question_without_article.strip(' '))
         return question_without_article.strip(' ')
 
     def _extract_place(self, question):
@@ -27,7 +26,7 @@ class Parser:
 
     def _delete_article(self, question):
         """"""
-        regex = r"(le|la|les|l'|des|un|une)(.*)"
+        regex = r"(le|la|les|l'|de|des|un|une)(.*)"
         match = re.search(regex, question)
         if match:
             logger.debug('Entrée correct')
