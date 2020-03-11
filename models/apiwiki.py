@@ -7,6 +7,7 @@ from settings.settings import url_api_wikipedia
 
 
 class ApiWikipedia:
+    """Data usage class Api WikiPedia"""
 
     def __init__(self):
         """Initialization url API"""

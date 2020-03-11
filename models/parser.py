@@ -5,6 +5,7 @@ from logzero import logger
 
 
 class Parser:
+    """User input analysis class"""
 
     def clean(self, question):
         """User input cleaning method"""

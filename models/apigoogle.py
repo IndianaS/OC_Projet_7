@@ -5,6 +5,7 @@ from settings.settings import key_api_google_back, url_api_google
 
 
 class ApiGoogle:
+    """Google Api Data Usage Class"""
 
     def __init__(self):
         """Initialization url API key api"""
