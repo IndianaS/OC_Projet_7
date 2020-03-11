@@ -3,15 +3,14 @@ from logzero import logger
 from models.apigoogle import ApiGoogle
 from models.apiwiki import ApiWikipedia
 from models.parser import Parser
+from settings.settings import key_api_google_front
 
 from . import app
-
-#question_utilisateur = "Salut Grandpy, comment vas-tu? avez-vous passé une bonne soirée avec mémé hier soir? au fait, pourrais-tu m'indiquer ou se trouve le Musée du Louvre?"
 
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html", api_key = key_api_google_front)
 
 
 @app.route("/ajax", methods=["POST"])
@@ -35,7 +34,8 @@ def ajax():
         "article": extract,
         "coords": coo,
         "url": url,
-        "adress": adress
+        "adress": adress,
+        "response": "Voilà l'endroit demandé mon petit !"
     }
 
     return jsonify(data)

@@ -1,3 +1,7 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    }
+
 
 h1 {
     text-decoration: underline;
@@ -29,15 +33,13 @@ footer
 .div
 {
     background-color: gray;
-    height:120px;
 }
 
 .div-footer
 {
-    height:60px;
     margin-bottom: 60px;
-    font-family: 'Indie Flower', cursive;
-    font-size: 38px;
+    font-size: 24px;
+    text-align: center;
 }
 
 
@@ -56,6 +58,43 @@ footer
     transform: scaleX(-1)
 }
 
+.picture-left-img
+{
+    width: 500px;
+}
+
+.picture-right-img
+{
+    width: 500px;
+}
+
+@media all and (max-width: 1700px){
+    .picture-left-img
+    {
+        width: 300px;
+        margin-top: 50px;
+    }
+    
+    .picture-right-img
+    {
+        width: 300px;
+        margin-top: 50px;
+    }
+}
+
+@media all and (max-width: 1280px){
+    .picture-left-img
+    {
+        display: none;
+    }
+    
+    .picture-right-img
+    {
+        display: none;
+    }
+}
+
+
 .chatbox {
     height: 700px;
     background-color: rgb(231, 231, 231);
@@ -67,6 +106,20 @@ footer
     overflow: auto;
    }
    
+@media all and (max-width: 700px)
+{
+    .chatbox
+    {
+        width: 100%;
+    }
+    
+    .input-usertext 
+    {
+        width: 100%;
+        height: 20px;
+    }
+}
+
    .question {
     width: 60%;
     background-color:rgb(143, 143, 143);

@@ -14,11 +14,11 @@
             </div>
         <br>
             <div class="picture-left">
-                <img src={{url_for('static', filename='picture/robot.png')}}/>
+                <img class="picture-left-img" src={{url_for('static', filename='picture/robot.png')}}/>
             </div>
 
             <div class="picture-right">
-                <img src={{url_for('static', filename='picture/robot.png')}}/>
+                <img class="picture-right-img" src={{url_for('static', filename='picture/robot.png')}}/>
             </div>
 
         <form id="user-text-form">
@@ -32,13 +32,16 @@
         </form>
         <div id="chatbox" class="chatbox"></div>
         <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWLa9kNqrKKKE8jMU1xpXYzPOHpxvpHuQ">
+        src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}">
     </script>
     <script type="text/javascript" src={{ url_for('static', filename='script.js') }}></script>
   </body>
   <footer>
     <div class="div-footer">
-        <p>Merci pour la visite.</p>
+        <p>
+            Rejaud Benjamin&emsp;&emsp;
+            <a href="https://github.com/IndianaS/OC_Projet_7">Lien GitHub</a>
+        </p>
     </div>
   </footer>
 </html>

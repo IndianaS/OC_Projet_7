@@ -10,14 +10,6 @@ function createDiv(text, klass, parent) {
     return divElt;
 }
 
-function createDivLink(url, klass, parent) {
-    let divElt = document.createElement("div");
-    divElt.classList.add(klass);
-    divElt.innerHTML = "Lien vers page Wikipedia".link(url);
-    parent.appendChild(divElt);
-    divElt.scrollIntoView();
-}
-
 function createLink(text, url, parent) {
     let aElt = document.createElement("a");
     aElt.href = url;
@@ -53,6 +45,7 @@ form.addEventListener("submit", function (event) {
         console.log(data)
         let chatbox = document.querySelector("#chatbox")
         createDiv(data.question, "question", chatbox);
+        createDiv(data.response, "answer", chatbox);
         createDiv(data.adress, "answer", chatbox);
         createMap(data.coords, "map", chatbox);
         let article = createDiv(data.article, "answer", chatbox);
