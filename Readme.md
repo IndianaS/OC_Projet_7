@@ -16,7 +16,7 @@
 - 2: Once launched, go to your browser and enter the following url: "http://127.0.0.1:5000/".
 
 # -4: Unit test:
-- : To launch the unit tests execute in the terminal the command `pytest -vvv`
+- : To launch the unit tests execute in the terminal the command `pytest -vvv`.
 
 # - Use:
 - : In the form, ask your question to GrandPy and click on the button `Envoyé`.
