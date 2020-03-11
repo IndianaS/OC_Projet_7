@@ -10,7 +10,7 @@ from . import app
 
 @app.route("/")
 def home():
-    return render_template("index.html", api_key = key_api_google_front)
+    return render_template("index.html", api_key=key_api_google_front)
 
 
 @app.route("/ajax", methods=["POST"])
