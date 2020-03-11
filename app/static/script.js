@@ -1,6 +1,9 @@
 
 let form = document.querySelector("#user-text-form")
 
+/** 
+ * Div chatbox creation function.
+*/
 function createDiv(text, klass, parent) {
     let divElt = document.createElement("div");
     divElt.classList.add(klass);
@@ -10,6 +13,9 @@ function createDiv(text, klass, parent) {
     return divElt;
 }
 
+/** 
+ * Url link creation function.
+*/
 function createLink(text, url, parent) {
     let aElt = document.createElement("a");
     aElt.href = url;
@@ -17,6 +23,9 @@ function createLink(text, url, parent) {
     parent.appendChild(aElt);
 }
 
+/** 
+ * Google map creation function.
+*/
 function createMap(position, klass, parent) {
     let mapElt = document.createElement("div");
     mapElt.classList.add(klass);
@@ -34,6 +43,9 @@ function createMap(position, klass, parent) {
     parent.appendChild(mapElt);
 }
 
+/** 
+ * Call functions for display in the chatbox.
+*/
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     fetch("/ajax", {
