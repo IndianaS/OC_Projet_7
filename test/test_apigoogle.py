@@ -19,7 +19,9 @@ def test_apigoogle_api_reading_offline(monkeypatch):
         [
             {
                 "formatted_address": "new york",
-                "geometry": {'location': {'lat': 48.85837009999999, 'lng': 2.2944813}}
+                "geometry":
+                    {'location':
+                        {'lat': 48.85837009999999, 'lng': 2.2944813}}
                 }
         ]
       }

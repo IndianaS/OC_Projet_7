@@ -70,8 +70,10 @@ def test_apiwiki_get_extract_offline(monkeypatch):
         'query': {
             'pages': {
                 '5': {
-                    'canonicalurl': 'https://fr.wikipedia.org/wiki/Tour_Eiffel',
-                    'extract': 'La tour Mockel'
+                    'canonicalurl':
+                    'https://fr.wikipedia.org/wiki/Tour_Eiffel',
+                    'extract':
+                    'La tour Mockel'
                 }
             }
         }
