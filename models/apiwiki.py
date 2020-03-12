@@ -29,38 +29,47 @@ class ApiWikipedia:
 
         if response.status_code == 200:
             geosearch_data = response.json()
-
         else:
             geosearch_data = {
                 'query': {
-                    'geosearch': []
+                    'geosearch': [{'pageid': None}]
                 }
             }
             logger.debug("La requête a donné un status d'erreur")
 
-        page_id = geosearch_data['query']['geosearch'][0]['pageid']
-        return page_id
+        try:
+            page_id = geosearch_data['query']['geosearch'][0]['pageid']
+            return page_id
+        except:
+            logger.debug(geosearch_data)
+            return None
 
     def api_get_extract(self, page_id):
         """Data extraction from the Wikipedia API"""
 
         params = {
-                "format": "json",
-                "action": "query",
-                "prop": "extracts|info",
-                "inprop": "url",
-                "exchars": 2000,
-                "explaintext": 1,
-                "pageids": page_id
-            }
+            "format": "json",
+            "action": "query",
+            "prop": "extracts|info",
+            "inprop": "url",
+            "exchars": 2000,
+            "explaintext": 1,
+            "pageids": page_id
+        }
         response = requests.get(url=url_api_wikipedia, params=params)
         if response.status_code == 200:
             extracts_data = response.json()
+        else:
+            logger.debug("La requête a donné un status d'erreur")
+
+        try:
             logger.debug("Voici la réponse obtenue: ")
-            result_extract = extracts_data['query']['pages'][str(page_id)]['extract']
-            result_url = extracts_data['query']['pages'][str(page_id)]['canonicalurl']
+            result_extract = extracts_data['query']['pages'][str(
+                page_id)]['extract']
+            result_url = extracts_data['query']['pages'][str(
+                page_id)]['canonicalurl']
             logger.debug(result_url)
             pprint(result_extract)
             return result_extract, result_url
-        else:
-            logger.debug("La requête a donné un status d'erreur")
+        except:
+            return None

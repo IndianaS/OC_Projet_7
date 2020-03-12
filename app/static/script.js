@@ -58,10 +58,14 @@ form.addEventListener("submit", function (event) {
         let chatbox = document.querySelector("#chatbox")
         createDiv(data.question, "question", chatbox);
         createDiv(data.response, "answer", chatbox);
-        createDiv(data.adress, "answer", chatbox);
-        createMap(data.coords, "map", chatbox);
-        let article = createDiv(data.article, "answer", chatbox);
-        createLink(" En savoir plus", data.url, article);
+        console.log("Le status est: " + data.status)
+        
+        if (data.status) {
+            createDiv(data.adress, "answer", chatbox);
+            createMap(data.coords, "map", chatbox);
+            let article = createDiv(data.article, "answer", chatbox);
+            createLink(" En savoir plus", data.url, article);
+        }
     });
 })
 
