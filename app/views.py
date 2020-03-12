@@ -10,11 +10,13 @@ from . import app
 
 @app.route("/")
 def home():
+    """"""
     return render_template("index.html", api_key=key_api_google_front)
 
 
 @app.route("/ajax", methods=["POST"])
 def ajax():
+    """"""
     user_text = request.form["userText"]
 
     logger.debug("Question posée :" + user_text)

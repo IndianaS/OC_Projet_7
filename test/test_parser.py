@@ -2,7 +2,7 @@ from models.parser import Parser
 
 
 def test_Parser_clean():
-    """"""
+    """Cleaning function test"""
 
     question = 'Ou se trouve le musée du Louvre?'
     parser = Parser()
@@ -11,7 +11,7 @@ def test_Parser_clean():
 
 
 def test_Parser_extract_place():
-    """"""
+    """Place extraction function test"""
 
     question = 'ou se trouve le musee du louvre?'
     parser = Parser()
@@ -20,7 +20,7 @@ def test_Parser_extract_place():
 
 
 def test_Parser_delete_article():
-    """"""
+    """Test article deletion function"""
 
     question = 'ou se trouve le musee du louvre?'
     parser = Parser()
