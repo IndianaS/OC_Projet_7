@@ -24,10 +24,15 @@ class Parser:
     def _extract_place(self, question):
         """keyword extraction"""
 
-        regex = r"(ou se trouve|ou se situe|quelle est l'adresse de|ou est|c'est ou)([^,.:;!?]*)"
+        regex = r"(ou se trouve|ou se situe|quelle est l'adresse de|ou est|c'est ou|ou c'est)([^,.:;!?]*)"
         match = re.search(regex, question)
 
-        return match.group(2)
+        if match:
+            return match.group(2)
+        
+        logger.debug("extract place: " + match.group(2))
+
+        return question
 
     def _delete_article(self, question):
         """Item deletion method"""
@@ -35,10 +40,6 @@ class Parser:
         regex = r"(le|la|les|l'|de|des|un|une)*(.*)"
         match = re.search(regex, question)
 
-        if match:
-            logger.debug("IF MATCH ARTICLE:" + match.group(2))
-        else:
-            logger.debug("ELSE MATCH:" + match.group(2))
-            return None
+        logger.debug("delete article: " + match.group(2))
 
         return match.group(2)

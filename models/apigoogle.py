@@ -22,9 +22,19 @@ class ApiGoogle:
         }
 
         response = requests.get(url=url_api_google, params=params)
-        data = response.json()
-        result_adress = data["results"][0]["formatted_address"]
-        result_coordinate = data["results"][0]["geometry"]["location"]
-        logger.debug(result_adress)
-        logger.debug(result_coordinate)
+
+        if response.status_code == 200:
+            data = response.json()
+        else:
+            logger.debug("La requête a donné un status d'erreur")
+
+        try:
+            result_adress = data["results"][0]["formatted_address"]
+            result_coordinate = data["results"][0]["geometry"]["location"]
+            logger.debug(result_adress)
+            logger.debug(result_coordinate)
+        except:
+            logger.debug("Pas de réponse")
+            return None, None
+
         return result_adress, result_coordinate

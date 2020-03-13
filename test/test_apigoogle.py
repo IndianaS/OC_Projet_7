@@ -22,24 +22,26 @@ def test_apigoogle_api_reading_offline(monkeypatch):
                 "geometry":
                     {'location':
                         {'lat': 48.85837009999999, 'lng': 2.2944813}}
-                }
+            }
         ]
-      }
+    }
 
     class MockRequests:
         """Mock class Requests"""
 
         def get(self, url, params):
             """Mock method get function"""
-
-            return MockResponse()
+            return MockResponse(200)
 
     class MockResponse:
         """Mock class Response"""
 
+        def __init__(self, code):
+            """Google API code initialization"""
+            self.status_code = code
+
         def json(self):
             """Mock method json function"""
-
             return result
 
     monkeypatch.setattr('models.apigoogle.requests', MockRequests())

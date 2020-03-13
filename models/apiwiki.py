@@ -41,7 +41,7 @@ class ApiWikipedia:
             page_id = geosearch_data['query']['geosearch'][0]['pageid']
             return page_id
         except:
-            logger.debug(geosearch_data)
+            logger.debug("Pas de réponse")
             return None
 
     def api_get_extract(self, page_id):
