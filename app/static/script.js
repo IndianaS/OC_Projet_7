@@ -56,6 +56,8 @@ form.addEventListener("submit", function (event) {
     }).then(function (data) {
         console.log(data)
         let chatbox = document.querySelector("#chatbox")
+        const body = document.querySelector("body");
+        body.classList.toggle("waiting");
         createDiv(data.question, "question", chatbox);
         createDiv(data.response, "answer", chatbox);
         console.log("Le status est: " + data.status)

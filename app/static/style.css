@@ -76,6 +76,10 @@ footer
     flex-direction: column;
     align-items: flex-start;
     overflow: auto;
+}
+
+.waiting {
+    cursor: wait;
    }
 
 .question {
@@ -85,7 +89,7 @@ footer
     margin: 10px;
     border-radius: 5px;
    }
-   
+
 .answer {
     width: 60%;
     background-color:rgb(72, 197, 72);
