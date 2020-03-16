@@ -28,9 +28,8 @@ class Parser:
         match = re.search(regex, question)
 
         if match:
-            return match.group(2)
-        
-        logger.debug("extract place: " + match.group(2))
+            logger.debug("extract place: " + match.group(2))
+            question = match.group(2)
 
         return question
 
