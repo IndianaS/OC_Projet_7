@@ -25,4 +25,4 @@ def test_Parser_delete_article():
     question = 'le musee du louvre?'
     parser = Parser(question)
     result = parser._delete_article(question)
-    assert result == " musee du louvre?"
+    assert result == "musee du louvre?"

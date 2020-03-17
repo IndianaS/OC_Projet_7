@@ -1,5 +1,6 @@
 
-let form = document.querySelector("#user-text-form")
+let form = document.querySelector("#user-text-form");
+const body = document.querySelector("body");
 
 /** 
  * Div chatbox creation function.
@@ -48,6 +49,7 @@ function createMap(position, klass, parent) {
 */
 form.addEventListener("submit", function (event) {
     event.preventDefault();
+    body.classList.toggle("waiting");
     fetch("/ajax", {
         method: "Post",
         body: new FormData(form)
@@ -55,19 +57,21 @@ form.addEventListener("submit", function (event) {
         return response.json()
     }).then(function (data) {
         console.log(data)
-        let chatbox = document.querySelector("#chatbox")
-        const body = document.querySelector("body");
         body.classList.toggle("waiting");
+        let chatbox = document.querySelector("#chatbox")
         createDiv(data.question, "question", chatbox);
         createDiv(data.response, "answer", chatbox);
         console.log("Le status est: " + data.status)
-        
+
         if (data.status) {
             createDiv(data.adress, "answer", chatbox);
             createMap(data.coords, "map", chatbox);
             let article = createDiv(data.article, "answer", chatbox);
             createLink(" En savoir plus", data.url, article);
         }
+        
+    }).catch(function (error) {
+        body.classList.toggle("waiting");
     });
 })
 

@@ -19,7 +19,10 @@ class Parser:
         question_place = self._extract_place(
             question_without_accent).strip(' ')
         question_without_article = self._delete_article(question_place)
-        return question_without_article.strip(' ')
+
+        logger.debug("final: " + question_without_article)
+
+        return question_without_article
 
     def _extract_place(self, question):
         """keyword extraction"""
@@ -39,6 +42,7 @@ class Parser:
         regex = r"(le|la|les|l'|de|des|un|une)*(.*)"
         match = re.search(regex, question)
 
-        logger.debug("delete article: " + match.group(2))
+        result = match.group(2)
+        logger.debug("delete article: " + result)
 
-        return match.group(2)
+        return result.strip(' ')
