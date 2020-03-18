@@ -4,7 +4,7 @@
 - Creation of an online search bot, asking a question on a place the application then displays a result on the search.
 
 # - 1: Project online:
-- Go to the following address: 
+- Go to the following address: "https://grand-py-oc.herokuapp.com/"
 
 # - 2: Initialization of the project locally:
 - 1: To initialize the virtual environment: `pipenv install`.
