@@ -1,5 +1,6 @@
 import requests
 from logzero import logger
+import logging
 
 from settings.settings import key_api_google_back, url_api_google
 
@@ -33,8 +34,8 @@ class ApiGoogle:
             result_coordinate = data["results"][0]["geometry"]["location"]
             logger.debug(result_adress)
             logger.debug(result_coordinate)
-        except:
-            logger.debug("Pas de réponse")
+        except (ValueError, IndexError) as error:
+            logging.warning(error)
             return None, None
 
         return result_adress, result_coordinate

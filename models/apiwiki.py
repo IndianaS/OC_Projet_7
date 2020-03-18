@@ -1,3 +1,4 @@
+import logging
 from pprint import pprint
 
 import requests
@@ -40,8 +41,8 @@ class ApiWikipedia:
         try:
             page_id = geosearch_data['query']['geosearch'][0]['pageid']
             return page_id
-        except:
-            logger.debug("Pas de réponse")
+        except (ValueError, IndexError, KeyError) as error:
+            logging.warning(error)
             return None
 
     def api_get_extract(self, page_id):
@@ -71,5 +72,6 @@ class ApiWikipedia:
             logger.debug(result_url)
             pprint(result_extract)
             return result_extract, result_url
-        except:
+        except (ValueError, IndexError, KeyError) as error:
+            logging.warning(error)
             return None

@@ -27,7 +27,10 @@ class Parser:
     def _extract_place(self, question):
         """keyword extraction"""
 
-        regex = r"(ou se trouve|ou se situe|quelle est l'adresse de|ou est|c'est ou|ou c'est)([^,.:;!?]*)"
+        regex = (
+            r"(ou se trouve|ou se situe|quelle est l'adresse de"
+            r"|ou est|c'est ou|ou c'est)([^,.:;!?]*)"
+        )
         match = re.search(regex, question)
 
         if match:
